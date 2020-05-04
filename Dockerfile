@@ -3,6 +3,7 @@ RUN apt-get update && apt-get install -y \
     git \
     wget curl iputils-ping nmap dnsutils \
     python3 python3-pip \
+    python python-pip \
     vim openjdk-11-jdk \
     postgresql-client-11
 
@@ -17,4 +18,5 @@ RUN curl -LO https://downloads.apache.org/kafka/${KAFKA_VERSION}/kafka_${SCALA_V
     mkdir /opt/kafka && \
     tar -zxvf kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz -C /opt/kafka
 
+RUN pip install cqlsh==5.0.4
 CMD ["tail", "-f", "/dev/null"]
